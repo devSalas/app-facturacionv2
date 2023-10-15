@@ -1,0 +1,15 @@
+{
+    "name": "esteban/facturacion",
+    "autoload": {
+        "psr-4": {
+            "Esteban\\Facturacion\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "estebans salas sulca",
+            "email": "esalassulca@gmail.com"
+        }
+    ],
+    "require": {}
+}

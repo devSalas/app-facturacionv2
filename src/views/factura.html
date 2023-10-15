@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="factura.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Factura</h1>
+    <body>
+    <div class="container">
+        <div>
+            <a href="../index.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: black;"><path d="M11.999 1.993C6.486 1.994 2 6.48 1.999 11.994c0 5.514 4.486 10 10.001 10 5.514-.001 10-4.487 10-10 0-5.514-4.486-10-10.001-10.001zM12 19.994c-4.412 0-8.001-3.589-8.001-8 .001-4.411 3.59-8 8-8.001C16.411 3.994 20 7.583 20 11.994c0 4.41-3.589 7.999-8 8z"></path><path d="m12.012 7.989-4.005 4.005 4.005 4.004v-3.004h3.994v-2h-3.994z"></path></svg>
+            </a>
+        </div>
+        <h2>Nueva Facturación</h2>
+        <form class="form_billing">
+                <div class="form_inform inform_product">
+                <div class="flex-">
+                    <div class="column">
+                        <label for="">Producto<input class="input_producto" type="text" name="producto" list="productos" required></label>
+                        <datalist class="datalist-producto" id="productos">
+
+                        </datalist>
+                    
+                    </div>
+                    <div>
+                        <label for="">Unidad de medida: <input type="text" name="unidad_medida" required></label> 
+                    </div>
+                </div>
+
+                <div class="flex-row">
+                    <label for="">Detalle: <input type="text" name="descripcion" required></label>
+                    <label for="">IGV: <input type="text" value="18%" id="afectacion" name="afectacion" disabled></label>
+                </div>
+
+                <div class="flex-row">
+                    <label for="">Precio: <input type="text" name="precio" required></label>
+                    <label for="">stock: <input type="text" name="stock" required></label>
+                    <label for="">cantidad: <input type="text" name="cantidad" default="1" required></label>
+                    <div class="btns_producto flex-row">
+                        <input  type="submit" name="agregar_producto" class="btn_agregar agregarProducto" value="+">
+                        <input type="submit" class="btn_eliminar eliminar_producto" name="eliminar_producto" value = "x">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form_inform informe_cliente">
+                <div class="flex-row">
+
+                        <label for="">cliente<input class="input_cliente" type="text" data-id_cliente="0" name="cliente" list="clientes"></label>
+                        <datalist class="datalist-cliente" id="clientes">                        </datalist>
+                        <label for="">Fecha de Emision: <input type="text" id="fecha" name="fecha" disabled></label>
+                </div>
+                <div class="flex-row">
+                    <label for="">N°facturación: <input type="text" name="numero_factura" disabled></label>
+                    <label for="" style="display: flex;">doc: 
+                    <select name="documento" id="tipo_documento"  >
+                        <option class="documento_dni" value="DNI" >DNI</option>
+                        <option class="documento_ruc" value="RUC">RUC</option>
+                    </select>
+                    <input type="text" name="numero_documento">
+                </label>
+                </div>
+                <div class="flex-row">
+                    <label for="">Razon social <input type="text" name="razon_social"></label>
+                    <label for="">Dirección : <input type="text" name="direccion"></label>
+
+                </div>
+                <div class="flex-row">
+               
+
+
+                </div>
+            </div>
+
+        </form>
+
+
+
+        <table border="1" class="table-product" id="table-product">
+            <thead>
+                <th>item</th>
+                <th>producto</th>
+                <th>U. medida</th>
+                <th>Cantidad</th>
+                <th>Precio Unidad</th>
+                <th>importe</th>
+                <th>eliminar</th>
+            </thead>
+            <tbody class="tbody-items">
+                <tr class="mensaje-item-vacio">
+                    <td colspan="6">
+                        <div >
+                            No existe ningun registro en el carrito.
+                        </div>
+                    </td>
+                </tr>    
+
+                <template class="template-items"> 
+                <tr>
+                    <td class="uno"></td>
+                    <td class="dos"></td>
+                    <td class="tres"></td>
+                    <td class="cuatro"></td>
+                    <td class="cinco"></td>
+                    <td class="seis"></td>
+                    <td class="siete ">
+
+                        <svg class="btn_eliminar_producto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:#F0F0F0;"><path class="btn_eliminar_producto" d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path></svg>
+
+                    </td>
+                </tr>
+                </template>
+            </tbody>
+        </table>
+
+
+        <table class="tabla-precio-total">
+            <tbody>
+                <tr>
+                    <td >Subtotal</td>
+                    <td>s/ <span  class="precio-subtotal">0 </span></td>
+                </tr>
+                <tr>
+                    <td >IGV</td>
+                    <td >s/ <span class="igv">0</span></td>
+                </tr>
+                <tr>
+                    <td >Total</td>
+                    <td >s/ <span class="precio-total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div class="btns-importantes">
+        <button class="btn-delete">eliminar</button>
+        <button class="btn-save" >Guardar</button>
+        <button class="btn-print" disabled>imprimir </button>
+    </div>
+</body>
+</html>

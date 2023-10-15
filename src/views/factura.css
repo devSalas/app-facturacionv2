@@ -1,0 +1,23 @@
+*{
+    
+}
+
+.form_billing{
+    display: flex;
+    outline: 1px solid black;
+    gap: 10px;
+}
+
+.form_inform{
+    background-color: rgba(128, 128, 128, 0.247);
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+.inform_client{
+    flex-grow:1;
+}
+.inform_product{
+    flex-grow:1;
+}
